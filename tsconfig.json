@@ -1,5 +1,14 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@root/*": ["./*"],
+      "@pages/*": ["pages/*"],
+      "@components/*": ["components/*"],
+      "@services/*": ["services/*"],
+      "@utils/*": ["utils/*"],
+      "@styles/*": ["styles/*"]
+    },
     "target": "esnext",
     "module": "esnext",
     "jsx": "preserve",
@@ -20,6 +29,6 @@
     "resolveJsonModule": true,
     "isolatedModules": true
   },
-  "exclude": ["node_modules"],
+  "exclude": ["node_modules", "/build/*"],
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

@@ -1,10 +1,21 @@
-import styled from 'styled-components'
+import { useState } from "react";
+import Meta from "@components/core/Meta";
+import { getPictureByRange } from "@services/picture";
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+const meta = {
+  name: "Eleven Labs X NASA - Image spatiale du jour",
+  description:
+    "Site web d'Eleven Labs affichant l'image spatiale du jour proposé par la NASA ",
+};
 
 export default function Home() {
-  return <Title>My page</Title>
+  // const [dayPicture, setDayPicture] = useState();
+
+  getPictureByRange({ start: "2022-01-01", end: "2022-01-26" });
+  return (
+    <>
+      <Meta meta={meta} />
+      <h1>ELEVEN LABS X NASA</h1>
+    </>
+  );
 }
