@@ -7,6 +7,7 @@ import { TextField } from "@mui/material";
 import { useQuery, UseQueryResult } from "react-query";
 import Picture from "@components/picture/Picture";
 import { PictureDay } from "@utils/interfaces";
+import { Inner, Wrapper } from "@root/styles/Global";
 
 const meta = {
   name: "Eleven Labs X NASA - Image spatiale du jour",
@@ -35,20 +36,24 @@ export default function Home({ picture }: PictureDay) {
   if (error) return "An error has occurred: " + error.message;
 
   return (
-    <>
-      <Meta meta={meta} />
-      <h1>ELEVEN LABS X NASA</h1>
-      <DatePicker
-        value={userValue}
-        label="Choisir une date"
-        onChange={(newValue) => {
-          const formatUserValue = format(newValue, "yyyy-MM-dd");
-          setUserValue(formatUserValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-      <Picture picture={pictureDay} />
-    </>
+    <Inner>
+      <Wrapper>
+        <Meta meta={meta} />
+        <h1>
+          ELEVEN LABS <span>X</span> NASA
+        </h1>
+        <DatePicker
+          value={userValue}
+          label="Choisir une date"
+          onChange={(newValue) => {
+            const formatUserValue = format(newValue, "yyyy-MM-dd");
+            setUserValue(formatUserValue);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
+        <Picture picture={pictureDay} />
+      </Wrapper>
+    </Inner>
   );
 }
 

@@ -1,6 +1,7 @@
 import { QueryClient, QueryClientProvider } from "react-query";
 import DateAdapter from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import Layout from "@components/core/Layout";
 
 export default function App({ Component, pageProps }: any) {
   const queryClient = new QueryClient();
@@ -8,7 +9,9 @@ export default function App({ Component, pageProps }: any) {
   return (
     <QueryClientProvider client={queryClient}>
       <LocalizationProvider dateAdapter={DateAdapter}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </LocalizationProvider>
     </QueryClientProvider>
   );
