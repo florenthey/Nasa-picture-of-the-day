@@ -9,7 +9,7 @@ const getDefaultPicture = async () => {
     const data = await Axios.get(
       `${process.env.NEXT_PUBLIC_API_NASA_APOD}?api_key=${process.env.NEXT_PUBLIC_API_NASA_APOD_KEY}`
     );
-    console.log(data);
+
     return data.data;
   } catch (error) {
     console.error("error-get-default-picture", error);
