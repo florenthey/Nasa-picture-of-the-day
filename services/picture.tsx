@@ -1,20 +1,31 @@
 import Axios from "axios";
 
-interface PictureByRange {
-  start: string;
-  end: string;
+export interface Date {
+  date: string;
 }
 
-const getPictureByRange = async ({ start, end }: PictureByRange) => {
+const getDefaultPicture = async () => {
   try {
     const data = await Axios.get(
-      `${process.env.NEXT_PUBLIC_API_NASA_APOD}?api_key=${process.env.NEXT_PUBLIC_API_NASA_APOD_KEY}&start_date=${start}&end_date=${end}`
+      `${process.env.NEXT_PUBLIC_API_NASA_APOD}?api_key=${process.env.NEXT_PUBLIC_API_NASA_APOD_KEY}`
     );
 
     return data.data;
   } catch (error) {
-    console.error("error-get-picture-by-range", error);
+    console.error("error-get-default-picture", error);
   }
 };
 
-export { getPictureByRange };
+const getPicture = async (date) => {
+  try {
+    const data = await Axios.get(
+      `${process.env.NEXT_PUBLIC_API_NASA_APOD}?api_key=${process.env.NEXT_PUBLIC_API_NASA_APOD_KEY}&date=${date}`
+    );
+
+    return data.data;
+  } catch (error) {
+    console.error("error-get-picture", error);
+  }
+};
+
+export { getDefaultPicture, getPicture };

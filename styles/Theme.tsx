@@ -11,6 +11,6 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     font-family: "Montserrat", sans-serif;
     font-size: 16px;
-    background: #dce2e6;
+    background: #021522;
   }   
 `;
